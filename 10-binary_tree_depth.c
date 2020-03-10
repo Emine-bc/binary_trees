@@ -16,4 +16,3 @@ for (count = 0; (*tree).parent != NULL; count++)
 tree = (*tree).parent;
 return (count);
 }
-  
