@@ -14,13 +14,12 @@ binary_tree_t *node = malloc(sizeof(binary_tree_t));
 if (node == NULL || parent == NULL)
 return (NULL);
 (*node).n = value;
-if ((*parent).right == NULL)
-(*parent).right = node;
-else
+(*node).parent = parent;
+if ((*parent).right != NULL)
 {
 (*node).right = (*parent).right;
-(*parent).right = node;
-(*node).right->parent = node;
+(*parent).right->parent = node;
 }
+(*parent).right = node;
 return (node);
 }
