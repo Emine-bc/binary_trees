@@ -16,11 +16,11 @@ return (NULL);
 (*node).left = NULL;
 (*node).parent = parent;
 (*node).n = value;
-node->right = parent->right;
-(*parent).right = node;
-if (node->right)
+(*node).right = (*parent).right;
+if ((*parent).right)
 {
-node->right->parent = node;
+(*parent).right->parent = node;
 }
+(*parent).right = node;
 return (node);
 }
