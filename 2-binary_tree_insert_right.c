@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <stdlib.h>
+#include <stdio.h>
 #include "binary_trees.h"
 /**
 * binary_tree_insert_right-function that inserts a node as the
@@ -11,13 +11,14 @@
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 {
 binary_tree_t *node = malloc(sizeof(binary_tree_t));
-if (node == NULL || parent == NULL)
+if ((node == NULL) || (parent == NULL))
 return (NULL);
-(*node).n = value;
+(*node).left = NULL;
 (*node).parent = parent;
-if ((*parent).right != NULL)
-{
+(*node).n = value;
 (*node).right = (*parent).right;
+if ((*parent).right)
+{
 (*parent).right->parent = node;
 }
 (*parent).right = node;
