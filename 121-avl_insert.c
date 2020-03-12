@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-
 /**
  * array_to_avl - function that inserts a value in an AVL Tree
  *
