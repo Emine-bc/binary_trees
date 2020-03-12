@@ -15,10 +15,11 @@ if (node == NULL || parent == NULL)
 return (NULL);
 (*node).n = value;
 (*node).parent = parent;
-(*parent).right = node;
+if ((*parent).right != NULL)
+{
 (*node).right = (*parent).right;
-(*node).left = NULL;
-if ((*node).right != NULL)
-(*node).right->parent = node;
+(*parent).right->parent = node;
+}
+(*parent).right = node;
 return (node);
 }
