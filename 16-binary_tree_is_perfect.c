@@ -2,21 +2,40 @@
 #include <stdio.h>
 #include "binary_trees.h"
 /**
-*check-function that hel to checks
-*@tree:is a pointer to the root node of the tree
+* binary_tree_depth-unction that measures the depth
+* of a node in a binary tree
+*@tree:is a pointer to the node to measure the depth
 *Return: always success.
 **/
-int check(binary_tree_t *tree)
+size_t binary_tree_depth(const binary_tree_t *tree)
 {
-int right = 0;
-int left = 0;
-int check_value = 0;
+int count;
+for (count = 0; tree != NULL; count++)
+tree = (*tree).left;
+return (count);
+}
+/**
+*check-function that hel to checks
+*@tree:is a pointer to the root node of the tree
+*@count:is a compteur
+*@i: variable help check
+*Return: always success.
+**/
+int check(const binary_tree_t *tree, int count, int i)
+{
+int x = 0;
+int y = 0;
 if (tree == NULL)
 return (0);
-check_value = ((right = 1 + check((*tree).right))) +
-(left = 1 + check((*tree).left));
-return (check_value);
+if (!(*tree).left && !(*tree).right)
+return (count == i + 1);
+if (!(*tree).left || !(*tree).right)
+return (0);
+x = check((*tree).left, count, i + 1);
+y = check((*tree).right, count, i + 1);
+return (x *y);
 }
+
 /**
 *binary_tree_is_perfect-function that checks if a binary tree is perfect
 *@tree:is a pointer to the root node of the tree to check
@@ -24,11 +43,6 @@ return (check_value);
 **/
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-if (tree == NULL)
-return (0);
-int right = check((*tree).right);
-int left = check((*tree).left);
-if (right != left)
-return (0);
-return (1);
+int count = binary_tree_depth(tree);
+return (check(tree, count, 0));
 }
