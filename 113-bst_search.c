@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-
 /**
  * bst_search - function that searches for a value in a Binary Search Tree
  * @tree: pointer const type
