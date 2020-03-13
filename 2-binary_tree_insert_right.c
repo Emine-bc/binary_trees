@@ -16,10 +16,10 @@ return (NULL);
 node = binary_tree_node(parent, value);
 if (node == NULL)
 return (NULL);
+(*node).right = (*parent).right;
 if ((*parent).right)
 {
 (*parent).right->parent = node;
-/*(*node).right = (*parent).right;*/
 }
 (*parent).right = node;
 return (node);
