@@ -22,9 +22,9 @@ return (count);
 **/
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
+int count;
 int result = 0, nil = 0;
-int count = binary_tree_depth(tree);
-result = check(tree, count, nil);
+result = check(tree, count = binary_tree_depth(tree), nil);
 return (result);
 }
 /**
