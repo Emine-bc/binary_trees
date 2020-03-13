@@ -15,12 +15,9 @@ int x = 0;
 int y = 0;
 if (tree == NULL)
 return (0);
-if ((*tree).left == NULL)
-{
-if ((*tree).right == NULL)
+if (!(*tree).left && !(*tree).right)
 return (count == i + 1);
-}
-if (!(*tree).right)
+if (!(*tree).left || !(*tree).right)
 return (0);
 x = check((*tree).left, count, i + 1);
 y = check((*tree).right, count, i + 1);
