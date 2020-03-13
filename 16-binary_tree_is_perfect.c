@@ -43,9 +43,15 @@ return (0);
 if ((*tree).left ==  NULL)
 {
 if ((*tree).right == NULL)
-return (count == i + 1);
+if (count == i + 1)
+{
+if (count == i + 1)
+return (1);
+else
+return (0);
 }
-if (!(*tree).left || !(*tree).right)
+}
+if ((*tree).left == NULL || (*tree).right == NULL)
 return (0);
 x = check((*tree).left, count, i + 1);
 y = check((*tree).right, count, i + 1);
