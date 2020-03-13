@@ -19,7 +19,7 @@ return (NULL);
 if ((*parent).right)
 {
 (*parent).right->parent = node;
-(*node).right = (*parent).right;
+/*(*node).right = (*parent).right;*/
 }
 (*parent).right = node;
 return (node);
